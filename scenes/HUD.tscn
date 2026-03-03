@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cytmmg3c3rp7d"]
+
+[ext_resource type="Script" uid="uid://ckk12sulo600e" path="res://src/hud.gd" id="1_qpvh6"]
+[ext_resource type="FontFile" uid="uid://b5rja5t065cr" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_1etfg"]
+
+[node name="HUD" type="Control" unique_id=1049003142]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpvh6")
+
+[node name="Message" type="Label" parent="." unique_id=645445709]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 8.0
+offset_right = 28.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1etfg")
+theme_override_font_sizes/font_size = 8
+text = "Press SPACE to start!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="P1Score" type="Label" parent="." unique_id=1430439240]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1etfg")
+text = "0"
+
+[node name="P2Score" type="Label" parent="." unique_id=679900363]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1etfg")
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1505002909]

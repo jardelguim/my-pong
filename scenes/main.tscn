@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://b0r387im3fqsw"]
+
+[ext_resource type="Script" uid="uid://cpr0a1w54iddh" path="res://src/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dh14fp81qof7m" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://wdhn4datu4np" path="res://scenes/enemy.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cytmmg3c3rp7d" path="res://scenes/HUD.tscn" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c3w2n2j308wvk" path="res://assets/sprites/divider.png" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://5m5j5ifqgqr7" path="res://assets/sprites/wireframe.png" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://chutvyk2oary1" path="res://scenes/ball.tscn" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://kvc17ccv875g" path="res://assets/sprites/text_box.png" id="3_tipki"]
+[ext_resource type="AudioStream" uid="uid://cnj0enf05ypsv" path="res://assets/sound/mixkit-arcade-game-jump-coin-216.wav" id="9_choun"]
+[ext_resource type="AudioStream" uid="uid://dm8istdhue6i8" path="res://assets/sound/mixkit-game-ball-tap-2073.wav" id="10_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://r0sooa1qj6x3" path="res://assets/sound/mixkit-instant-win-2021.wav" id="11_ya4ey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(13, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(14.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(14.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(412, 14)
+
+[node name="Main" type="Node" unique_id=103761936]
+script = ExtResource("1_jyhfs")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1971196174]
+offset_right = 400.0
+offset_bottom = 200.0
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+
+[node name="Divisor" type="Sprite2D" parent="." unique_id=371369931]
+position = Vector2(200, 104)
+scale = Vector2(0.5, 1.5)
+texture = ExtResource("2_tefeu")
+
+[node name="Divisor2" type="Sprite2D" parent="." unique_id=688261817]
+position = Vector2(200, 20)
+scale = Vector2(1.6000001, 1.3333334)
+texture = ExtResource("3_tipki")
+
+[node name="WireFrame" type="Sprite2D" parent="." unique_id=290766448]
+position = Vector2(200, 100)
+texture = ExtResource("3_o6xl0")
+
+[node name="Player" parent="." unique_id=1213998799 instance=ExtResource("1_sugp2")]
+position = Vector2(20, 96)
+
+[node name="Enemy" parent="." unique_id=1386985508 instance=ExtResource("2_jyhfs")]
+position = Vector2(376, 104)
+
+[node name="Ball" parent="." unique_id=545529409 instance=ExtResource("3_tbgi4")]
+position = Vector2(200, 100)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1205311654]
+
+[node name="LeftWall" type="Area2D" parent="Walls" unique_id=44456603]
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=442844583]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="LeftCollision2" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=1513261837]
+position = Vector2(0, 168)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="LeftWallCenter" type="Area2D" parent="Walls" unique_id=211522822]
+
+[node name="LeftCenterCollision" type="CollisionShape2D" parent="Walls/LeftWallCenter" unique_id=72291953]
+position = Vector2(0.75, 100)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="RightWall" type="Area2D" parent="Walls" unique_id=666878541]
+
+[node name="RightCollision" type="CollisionShape2D" parent="Walls/RightWall" unique_id=1067604424]
+position = Vector2(400, 32)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="RightCollision2" type="CollisionShape2D" parent="Walls/RightWall" unique_id=1788028549]
+position = Vector2(400, 168)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="RightWallCenter" type="Area2D" parent="Walls" unique_id=1647775111]
+
+[node name="RightCenterCollision" type="CollisionShape2D" parent="Walls/RightWallCenter" unique_id=1438310008]
+position = Vector2(399.25, 100)
+shape = SubResource("RectangleShape2D_eb6dy")
+
+[node name="UpWall" type="Area2D" parent="Walls" unique_id=988988149]
+
+[node name="UpCollision" type="CollisionShape2D" parent="Walls/UpWall" unique_id=182499703]
+position = Vector2(198, 0)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="DownWall" type="Area2D" parent="Walls" unique_id=1740780318]
+
+[node name="DownCollision" type="CollisionShape2D" parent="Walls/DownWall" unique_id=1502846317]
+position = Vector2(200, 199)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="HUD" parent="." unique_id=1049003142 instance=ExtResource("2_tbgi4")]
+metadata/_edit_lock_ = true
+
+[node name="Tap1" type="AudioStreamPlayer" parent="." unique_id=719001209]
+stream = ExtResource("9_choun")
+
+[node name="Tap2" type="AudioStreamPlayer" parent="." unique_id=623411912]
+stream = ExtResource("10_ya4ey")
+
+[node name="Win" type="AudioStreamPlayer" parent="." unique_id=659057709]
+stream = ExtResource("11_ya4ey")
+
+[connection signal="game_start_signal" from="." to="Ball" method="_on_main_game_start_signal"]
+[connection signal="game_start_signal" from="." to="HUD" method="_on_main_game_start_signal"]
+[connection signal="emit_ballPos" from="Ball" to="Enemy" method="_on_ball_emit_ball_pos"]
+[connection signal="emit_scores" from="Ball" to="HUD" method="_on_ball_emit_scores"]
