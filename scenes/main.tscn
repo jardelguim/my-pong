@@ -42,6 +42,11 @@ position = Vector2(200, 20)
 scale = Vector2(1.6000001, 1.3333334)
 texture = ExtResource("3_tipki")
 
+[node name="Divisor3" type="Sprite2D" parent="." unique_id=539112342]
+position = Vector2(200, 192)
+scale = Vector2(0.8, 0.7)
+texture = ExtResource("3_tipki")
+
 [node name="WireFrame" type="Sprite2D" parent="." unique_id=290766448]
 position = Vector2(200, 100)
 texture = ExtResource("3_o6xl0")
@@ -116,4 +121,5 @@ stream = ExtResource("11_ya4ey")
 [connection signal="game_start_signal" from="." to="Ball" method="_on_main_game_start_signal"]
 [connection signal="game_start_signal" from="." to="HUD" method="_on_main_game_start_signal"]
 [connection signal="emit_ballPos" from="Ball" to="Enemy" method="_on_ball_emit_ball_pos"]
+[connection signal="emit_ballPos" from="Ball" to="HUD" method="_on_ball_emit_ball_pos"]
 [connection signal="emit_scores" from="Ball" to="HUD" method="_on_ball_emit_scores"]

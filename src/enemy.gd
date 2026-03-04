@@ -1,7 +1,7 @@
 extends Node2D
 const maxY = 25
 const minY = 175
-var speed : float = 250
+var speed : float = 220
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +21,6 @@ func _process(delta: float) -> void:
 	position += velocity * delta
 	
 
-func _on_ball_emit_ball_pos(ballPos : Vector2) -> void:
+func _on_ball_emit_ball_pos(_ballPos : Vector2 , _speed : float) -> void:
 	# position.y = ballPos.y - 2
 	pass # Replace with function body.

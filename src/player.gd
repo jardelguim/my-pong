@@ -1,5 +1,5 @@
 extends Node2D
-var speed : float = 250
+var speed : float = 220
 var screen_size : Vector2
 
 

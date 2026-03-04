@@ -2,7 +2,7 @@ extends Node2D
 # Variables
 
 var screen_size : Vector2
-@export var speed : int = 200
+@export var speed : float = 200
 var isBallRunning : bool = false
 var direction
 var textmsg : String
@@ -17,6 +17,7 @@ var Player2score : int = 0
 func reset_ball():
 	position.x = screen_size.x / 2
 	position.y = screen_size.y / 2
+	speed = 200
 	isBallRunning = false
 	
 func random_pong_direction():
@@ -36,7 +37,6 @@ func _process(delta: float) -> void:
 	if isBallRunning:
 		$BallArea/BallSprite.rotate(1)
 		ballPos = position
-		emit_signal("emit_ballPos" , ballPos)
 		position += direction * speed * delta
 
 func _on_ball_area_area_entered(area: Area2D) -> void:
@@ -82,6 +82,8 @@ func _on_ball_area_area_entered(area: Area2D) -> void:
 	if area.name =="PlayerArea" or area.name == "EnemyArea":
 		direction.x = direction.x * -1
 		direction.y = direction.y + randf_range(-0.5 , 0.5)
+		speed += speed * 0.04
+		emit_signal("emit_ballPos" , ballPos, speed)
 		soundplayed = soundlist.pick_random()
 		soundplayed.play()
 

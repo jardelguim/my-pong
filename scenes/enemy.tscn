@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7c3cg88yd1n0" path="res://assets/sprites/paddle1.png" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(12, 68)
+size = Vector2(14, 68)
 
 [node name="Enemy" type="Node2D" unique_id=1386985508]
 scale = Vector2(1, 0.8)
